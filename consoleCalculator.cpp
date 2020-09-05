@@ -21,9 +21,9 @@ int main()
     string operation = "\0";
     string ans = "\0";
  
-        cout << "\t\t\t\t\t\t Console calculator v2.0 \n";
+        cout << "\t\t\t\t\t\t Console calculator v4.0 \n";
         cout << "\t\t\t\t\t Operations available : +, -, *, /, ^ \n";
-        cout << "\t\t\t functions available(radian input): cos, sin, tan, arc cos, arc sin, arc tan \n";
+        cout << "\t\t\t functions available(degree input): cos, sin, tan, arc cos, arc sin, arc tan \n";
      while (again)
      {
          if (redo == 1)
@@ -85,27 +85,27 @@ int main()
         //function operations that dont need second number
         else if (operation == "cos")
         {
-            result = cos(num1);
+            result = cos(num1 * PI / 180);
         }
         else if (operation == "sin")
         {
-            result = sin(num1);
+            result = sin(num1 * PI / 180);
         }
         else if (operation == "tan")
         {
-            result = tan(num1);
+            result = tan(num1 * PI / 180);
         }
         else if (operation == "acos")
         {
-            result = acos(num1);
+            result = acos(num1 * PI / 180);
         }
         else if (operation == "asin")
         {
-            result = asin(num1);
+            result = asin(num1 * PI / 180);
         }
         else if (operation == "atan")
         {
-            result = atan(num1);
+            result = atan(num1 * PI / 180);
         }
         //preparing for next calculation in case user wants it.
         prevAns = result;
@@ -129,14 +129,3 @@ int main()
     }
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
