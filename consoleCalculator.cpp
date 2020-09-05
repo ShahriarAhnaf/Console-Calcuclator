@@ -11,23 +11,39 @@ using namespace std;
 int main()
 {
     double num1 = 0;
-    string operation = "\0";
+    double prevAns = 0;
     double num2 = 0;
     double result = 0;
+    int redo = 0; 
     bool needSecond = true;
-    int redo = 0 ;
     bool again = true;
+    bool useAns = false;
+    string operation = "\0";
+    string ans = "\0";
  
-        cout << "\t\t\t\t\t\t Console calculator v1.0 \n";
+        cout << "\t\t\t\t\t\t Console calculator v2.0 \n";
         cout << "\t\t\t\t\t Operations available : +, -, *, /, ^ \n";
         cout << "\t\t\t functions available(radian input): cos, sin, tan, arc cos, arc sin, arc tan \n";
      while (again)
      {
+         if (redo == 1)
+         {
+             cout << "\ndo you want to use previous result as first calculation number? \n type yes or no:";
+             cin >> ans;
+             if (ans == "yes")
+             {
+                 num1 = prevAns;
+             }
+         }
         //first number and operation
-        cout << "enter first number:";
-        cin >> num1;
-        cout << "enter operation:";
-        cin >> operation;
+         else
+         {
+             cout << "\nenter first number:";
+             cin >> num1;
+         }
+         cout << "enter operation:";
+         cin >> operation;
+
 
         //logic check for need of second number
         if (operation == "cos" ||
@@ -91,8 +107,8 @@ int main()
         {
             result = atan(num1);
         }
-
-
+        //preparing for next calculation in case user wants it.
+        prevAns = result;
         //final output
         if (needSecond)
         {
@@ -102,6 +118,8 @@ int main()
         {
             cout << operation << num1 << " = " << result;
         }
+
+        //exit promp logic
         cout << "\n for more calculations enter 1, to exit enter 2 : ";
         cin >> redo;
         if (redo == 2)
